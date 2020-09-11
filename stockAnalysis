@@ -1,5 +1,5 @@
-'added new subroutine
-Sub stockAnalysis()
+
+Sub stockTest()
 'Labeling the columns that will have the outputs
 Cells(1, 9).Value = "Ticker"
 Cells(1, 10).Value = "Yearly Change"
@@ -9,12 +9,18 @@ Cells(1, 12).Value = "Total Stock Volume"
 Dim lRow As Long
 'setting lRow to the number of the last row which has data
 lRow = Cells(Rows.Count, 1).End(xlUp).Row
+'Making a variable to track which row will a particular output will be in
+Dim j As Integer
+j = 2
 'making variable that tracks what the stock ticker is
 Dim ticker As String
-'setting ticker to the first symbol
-ticker = Cells(2, 1).Value
 'setting the variable to equal the first ticker symbol
-Dim i As Integer 
+ticker = Cells(2, 1).Value
+'setting the first symbol of the Ticker column to be equal to the first ticker symbol in the data
+'using j as row indicator
+Cells(j, 9).Value = Cells(2, 1).Value
+'creating variable that will serve as the range of my for loop
+Dim i As Integer
 'begin the For Loop
 For i = 2 To lRow
 
