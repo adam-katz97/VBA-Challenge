@@ -1,5 +1,10 @@
 'added new subroutine
 Sub stockAnalysis()
+'Labeling the columns that will have the outputs
+Cells(1, 9).Value = "Ticker"
+Cells(1, 10).Value = "Yearly Change"
+Cells(1, 11).Value = "Percent Change"
+Cells(1, 12).Value = "Total Stock Volume"
 'making a Long variable to serve as the end of the for loop
 Dim lRow As Long
 'setting lRow to the number of the last row which has data
