@@ -9,9 +9,11 @@ Cells(1, 12).Value = "Total Stock Volume"
 Dim lRow As Long
 'setting lRow to the number of the last row which has data
 lRow = Cells(Rows.Count, 1).End(xlUp).Row
-'creating variable that will serve as the range of my for loop
+'making variable that tracks what the stock ticker is
+Dim ticker As String
+'setting the variable to equal the first ticker symbol
 Dim i As Integer 
 'begin the For Loop
-For i = 1 To lRow
+For i = 2 To lRow
 
 End Sub
