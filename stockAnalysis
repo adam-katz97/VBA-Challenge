@@ -1,5 +1,5 @@
 
-Sub stockTest()
+Sub stockAnalysis()
 'Labeling the columns that will have the outputs
 Cells(1, 9).Value = "Ticker"
 Cells(1, 10).Value = "Yearly Change"
