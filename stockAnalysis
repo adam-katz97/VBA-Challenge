@@ -4,4 +4,9 @@ Sub stockAnalysis()
 Dim lRow As Long
 'setting lRow to the number of the last row which has data
 lRow = Cells(Rows.Count, 1).End(xlUp).Row
+'creating variable that will serve as the range of my for loop
+Dim i As Integer 
+'begin the For Loop
+For i = 1 To lRow
+
 End Sub
