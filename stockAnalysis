@@ -15,19 +15,20 @@ j = 2
 'making variable that tracks what the stock ticker is
 Dim ticker As String
 'setting the variable to equal the first ticker symbol
-ticker = Cells(2, 1).Value
+ticker = Range("A2")
 'setting the first symbol of the Ticker column to be equal to the first ticker symbol in the data
 'using j as row indicator
-Cells(j, 9).Value = sticker
+ Cells(j, 9).Text = ticker
 'creating variable that will serve as the range of my for loop
 Dim i As Long
 'begin the For Loop
 For i = 2 To lRow
 'making an If Else statement checking the ticker
-    If i > 2 & Cells(i, 1).Value <> Cells(i - 1, 1) Then
-    ticker = Cells(i, 1).Value
+'changed if statement requirement
+    If Cells(i, 1).Text <> ticker Then
+    ticker = Cells(i, 1).Text
     j = j + 1
-    Cells(j, 9).Value = ticker
+    Cells(j, 9).Text = ticker
     End If
 Next i
 End Sub
