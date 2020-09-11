@@ -18,10 +18,16 @@ Dim ticker As String
 ticker = Cells(2, 1).Value
 'setting the first symbol of the Ticker column to be equal to the first ticker symbol in the data
 'using j as row indicator
-Cells(j, 9).Value = Cells(2, 1).Value
+Cells(j, 9).Value = sticker
 'creating variable that will serve as the range of my for loop
-Dim i As Integer
+Dim i As Long
 'begin the For Loop
 For i = 2 To lRow
-
+'making an If Else statement checking the ticker
+    If i > 2 & Cells(i, 1).Value <> Cells(i - 1, 1) Then
+    ticker = Cells(i, 1).Value
+    j = j + 1
+    Cells(j, 9).Value = ticker
+    End If
+Next i
 End Sub
