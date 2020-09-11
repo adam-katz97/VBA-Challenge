@@ -1,4 +1,7 @@
 'added new subroutine
 Sub stockAnalysis()
-
+'making a Long variable to serve as the end of the for loop
+Dim lRow As Long
+'setting lRow to the number of the last row which has data
+lRow = Cells(Rows.Count, 1).End(xlUp).Row
 End Sub
