@@ -11,6 +11,8 @@ Dim lRow As Long
 lRow = Cells(Rows.Count, 1).End(xlUp).Row
 'making variable that tracks what the stock ticker is
 Dim ticker As String
+'setting ticker to the first symbol
+ticker = Cells(2, 1).Value
 'setting the variable to equal the first ticker symbol
 Dim i As Integer 
 'begin the For Loop
