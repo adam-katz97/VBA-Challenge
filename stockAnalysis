@@ -6,29 +6,30 @@ Cells(1, 10).Value = "Yearly Change"
 Cells(1, 11).Value = "Percent Change"
 Cells(1, 12).Value = "Total Stock Volume"
 'making a Long variable to serve as the end of the for loop
-Dim lRow As Long
+Dim lRow As Double
 'setting lRow to the number of the last row which has data
 lRow = Cells(Rows.Count, 1).End(xlUp).Row
+'MsgBox (lRow)
 'Making a variable to track which row will a particular output will be in
-Dim j As Integer
-j = 2
+Dim tickerRow As Double
+tickerRow = 2
 'making variable that tracks what the stock ticker is
 Dim ticker As String
 'setting the variable to equal the first ticker symbol
-ticker = Range("A2")
+
 'setting the first symbol of the Ticker column to be equal to the first ticker symbol in the data
 'using j as row indicator
- Cells(j, 9).Text = ticker
+ 
 'creating variable that will serve as the range of my for loop
-Dim i As Long
+Dim i As Double
 'begin the For Loop
 For i = 2 To lRow
 'making an If Else statement checking the ticker
 'changed if statement requirement
-    If Cells(i+1, 1).Value <> Cells(i, 1) Then
-    ticker = Cells(i, 1).Text
-    j = j + 1
-    Cells(j, 9).Text = ticker
+    If Cells(i + 1, 1).Value <> Cells(i, 1) Then
+    ticker = Cells(i, 1).Value
+    Cells(tickerRow, 9) = ticker
+    tickerRow = tickerRow + 1
     End If
 Next i
 End Sub
