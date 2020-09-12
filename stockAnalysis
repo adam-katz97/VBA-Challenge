@@ -25,7 +25,7 @@ Dim i As Long
 For i = 2 To lRow
 'making an If Else statement checking the ticker
 'changed if statement requirement
-    If Cells(i, 1).Text <> ticker Then
+    If Cells(i+1, 1).Value <> Cells(i, 1) Then
     ticker = Cells(i, 1).Text
     j = j + 1
     Cells(j, 9).Text = ticker
