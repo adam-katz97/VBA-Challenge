@@ -9,16 +9,14 @@ Cells(1, 12).Value = "Total Stock Volume"
 Dim lRow As Double
 'setting lRow to the number of the last row which has data
 lRow = Cells(Rows.Count, 1).End(xlUp).Row
-'MsgBox (lRow)
+Dim totvol As Double
+totvol = 0
 'Making a variable to track which row will a particular output will be in
 Dim tickerRow As Double
 tickerRow = 2
 'making variable that tracks what the stock ticker is
 Dim ticker As String
 'setting the variable to equal the first ticker symbol
-
-'setting the first symbol of the Ticker column to be equal to the first ticker symbol in the data
-'using j as row indicator
  
 'creating variable that will serve as the range of my for loop
 Dim i As Double
@@ -27,9 +25,15 @@ For i = 2 To lRow
 'making an If Else statement checking the ticker
 'changed if statement requirement
     If Cells(i + 1, 1).Value <> Cells(i, 1) Then
+    totvol = totvol + Cells(i, 7).Value
     ticker = Cells(i, 1).Value
     Cells(tickerRow, 9) = ticker
+    Cells(tickerRow, 12).Value = totvol
     tickerRow = tickerRow + 1
+    totvol = 0
+    Else
+    totvol = totvol + Cells(i, 7).Value
     End If
 Next i
+
 End Sub
