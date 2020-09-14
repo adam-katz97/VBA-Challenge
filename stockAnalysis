@@ -36,7 +36,7 @@ For i = 2 To lRow
         yearChange = closePrice - openPrice
         Cells(tickerRow, 10).Value = yearChange
         percenChange = (yearChange / openPrice) * 100
-        Cells(tickerRow, 11) = percenChange
+        Cells(tickerRow, 11) = Round(percenChange, 2) & "%"
         ticker = Cells(i, 1).Value
         Cells(tickerRow, 9) = ticker
         Cells(tickerRow, 12).Value = totvol
@@ -56,5 +56,4 @@ ElseIf 0 > Cells(i, 10).Value Then
 Cells(i, 10).Interior.ColorIndex = 3
 End If
 Next i
-
 End Sub
