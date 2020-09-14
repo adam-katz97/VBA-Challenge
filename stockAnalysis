@@ -1,4 +1,3 @@
-
 Sub stockAnalysis()
 Dim ws As Worksheet
 For Each ws In Worksheets
@@ -42,8 +41,9 @@ For i = 2 To lRow
             Cells(tickerRow, 11) = "N/A"
         Else
             percenChange = (yearChange / openPrice) * 100
+            Cells(tickerRow, 11) = Round(percenChange, 2) & "%"
         End If
-        Cells(tickerRow, 11) = Round(percenChange, 2) & "%"
+      
         ticker = Cells(i, 1).Value
         Cells(tickerRow, 9) = ticker
         Cells(tickerRow, 12).Value = totvol
