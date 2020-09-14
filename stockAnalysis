@@ -1,5 +1,8 @@
 
 Sub stockAnalysis()
+Dim ws As Worksheet
+For Each ws In Worksheets
+ws.Activate
 'Labeling the columns that will have the outputs
 Cells(1, 9).Value = "Ticker"
 Cells(1, 10).Value = "Yearly Change"
@@ -15,7 +18,7 @@ Dim openPrice As Double
 openPrice = Cells(2, 3).Value
 Dim closePrice As Double
 Dim yearChange As Double
-Dim percenChange As Double
+Dim percenChange As Long
 
 'Making a variable to track which row will a particular output will be in
 Dim tickerRow As Double
@@ -35,7 +38,11 @@ For i = 2 To lRow
         closePrice = Cells(i, 6).Value
         yearChange = closePrice - openPrice
         Cells(tickerRow, 10).Value = yearChange
-        percenChange = (yearChange / openPrice) * 100
+        If openPrice = 0 Then
+            Cells(tickerRow, 11) = "N/A"
+        Else
+            percenChange = (yearChange / openPrice) * 100
+        End If
         Cells(tickerRow, 11) = Round(percenChange, 2) & "%"
         ticker = Cells(i, 1).Value
         Cells(tickerRow, 9) = ticker
@@ -56,4 +63,6 @@ ElseIf 0 > Cells(i, 10).Value Then
 Cells(i, 10).Interior.ColorIndex = 3
 End If
 Next i
+
+Next ws
 End Sub
